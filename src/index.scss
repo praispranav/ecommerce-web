@@ -42,3 +42,25 @@ h3{
 .inline-flex::-webkit-scrollbar{
   overflow: hidden;
 }
+
+.accordion-button:focus{
+  box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed){
+  background: white !important;
+  color: #3949ab !important;
+}
+
+.width-height-60px{
+  width: 55px !important;
+  height: 55px !important;
+}
+
+.border-inactive{
+  border: 1.4px solid #9fa8da;
+}
+
+.border-active{
+  border: 2px solid #3949ab;
+}

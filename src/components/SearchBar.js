@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Font } from "../config/Font";
 import { Colors } from "../config/Colors";
 import { AiOutlineMenu, AiFillCaretDown } from "react-icons/ai";
-import { BsSearch, BsTruck } from "react-icons/bs";
+import { BsTruck } from "react-icons/bs";
 import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 export default function SearchBar({ selectedCategory, queryParams }) {
   const [queryState, setQueryState] = useState(queryParams)
+  useEffect(()=>{
+    setQueryState(queryParams)
+  },[queryParams]);
   return (
     <div
       className="py-2"
@@ -18,7 +21,7 @@ export default function SearchBar({ selectedCategory, queryParams }) {
       }}
     >
       <div className="container d-flex align-items-center justify-content-between">
-        <div className="mx-3 border border-radius d-flex align-items-center">
+        <div style={{ border: `1px solid ${Colors.PrimaryDark}`}} className="mx-3 border-radius d-flex align-items-center">
           <div
             className="p-2 px-3"
             style={{
@@ -36,20 +39,20 @@ export default function SearchBar({ selectedCategory, queryParams }) {
               textTransform: "uppercase",
             }}
           >
-            {selectedCategory}
+            All Categories
           </span>
           <div className="pe-3">
             <AiFillCaretDown />
           </div>
         </div>
 
-        <div className="border border-radius d-flex align-items-center bg-white">
+        <div className="border-radius d-flex align-items-center bg-white" style={{ border: `1px solid ${Colors.PrimaryDark}`}}>
           <div
             className="px-3 py-2"
             style={{ backgroundColor: Colors.PrimaryLight }}
           >
-            Categories {""}
-            <AiFillCaretDown />
+            {selectedCategory}
+            <AiFillCaretDown className="ms-2" />
           </div>
           <input
             type="text"

@@ -1,10 +1,11 @@
 import React from "react";
 import { Colors } from "../config/Colors";
 import { Font } from "../config/Font";
+import { Link } from "react-router-dom";
 
-export default function Product({ image, label, price, discount, name, containerWidth }) {
+export default function Product({ image, label, price, discount, name, containerWidth,containerClass }) {
   return (
-    <div className="m-3" style={{ width: containerWidth ? containerWidth : "150px" }}>
+    <Link to={'/product?id=1001'} className={`m-3 ${containerClass}`} style={{ width: containerWidth ? containerWidth : "150px", maxWidth: '175px', textDecoration: 'none', color: 'black' }}>
       {/* Label Space */}
       <div
         className="d-flex justify-content-center"
@@ -41,6 +42,6 @@ export default function Product({ image, label, price, discount, name, container
           </span>
         )}
       </p>
-    </div>
+    </Link>
   );
 }
